@@ -1,0 +1,15 @@
+[Unit]
+Description=Empty user trash on system shutdown
+
+[Service]
+Type=oneshot
+User=pluto
+Environment=HOME=/home/pluto
+
+ExecStart=/bin/true
+ExecStop=/usr/local/bin/empty-trash.sh
+
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
